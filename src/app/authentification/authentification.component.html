@@ -1,0 +1,29 @@
+<h2>Authentication Page</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <label for="email">Email:</label>
+  <input id="email" formControlName="email" type="text">
+  <div *ngIf="email!.invalid && (email!.dirty || email!.touched)">
+    <div *ngIf="email!.errors?.['required']">Email is required.</div>
+    <div *ngIf="email!.errors?.['pattern']">Invalid email format.</div>
+  </div>
+  <br>
+
+  <label for="password">Password:</label>
+  <input id="password" formControlName="password" type="password">
+  <div *ngIf="password!.invalid && (password!.dirty || password!.touched)">
+    <div *ngIf="password!.errors?.['required']">Password is required.</div>
+    <div *ngIf="password!.errors?.['pattern']">Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one digit.</div>
+  </div>
+  <br>
+
+  <button type="submit">Register</button>
+</form>
+
+<h3>Users</h3>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.first_name }} {{ user.last_name }} {{user.email}}
+  </li>
+</ul>
+
+
