@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-details',
@@ -13,7 +14,7 @@ import { ApiService } from '../api.service';
 export class UserDetailsComponent {
   user: any;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     const userId = this.route.snapshot.paramMap.get('id');
@@ -34,4 +35,9 @@ loadUserDetails(id: string): void {
       }
     });
 }
+
+navigateToUserHandling(): void {
+  this.router.navigate(['/userhandling']);
+}
+
 }
