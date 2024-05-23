@@ -1,6 +1,9 @@
 <h3>Users</h3>
 <ul>
   <li *ngFor="let user of users">
-    {{user.email}}
+    {{ user.email }}
+    <button (click)="navigateToUserDetails(user.id)">Details</button>
   </li>
 </ul>
+
+<button (click)="navigateToNewUserPage()">Create New User</button>

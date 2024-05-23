@@ -14,6 +14,10 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/users`);
   }
 
+  getUserById(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/users/${id}`);
+  }
+
   registerUser(email: string, password: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/register`, { email, password });
   }
@@ -22,4 +26,7 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/login`, { email, password });
   }
 
+  createUser(name: string, job: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/users`, { name, job });
+  }
 }
