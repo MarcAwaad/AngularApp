@@ -1,9 +1,16 @@
+<div *ngIf="!userClicked">
 <h3>Users</h3>
 <ul>
   <li *ngFor="let user of users">
     {{ user.email }}
-    <button (click)="navigateToUserDetails(user.id)">Details</button>
+    <button (click)="showDetails(user.id, user.email, user.first_name, user.last_name)">Details</button>
   </li>
 </ul>
 
 <button (click)="navigateToNewUserPage()">Create New User</button>
+</div>
+
+<div *ngIf="userClicked">
+<app-user-details [id]="userId" [email]="userEmail" [firstName]="userFirstName" [lastName]="userLastName"></app-user-details>
+<button (click)="navigateToUserHandling()">Back To User Handling</button>
+</div>

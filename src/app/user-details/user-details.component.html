@@ -1,9 +1,7 @@
 <h3>User Details</h3>
-<div *ngIf="user">
-  <p><strong>ID:</strong> {{user.id}}</p>
-  <p><strong>Email:</strong> {{user.email}}</p>
-  <p><strong>First Name:</strong> {{user.first_name}}</p>
-  <p><strong>Last Name:</strong> {{user.last_name}}</p>
+<div>
+  <p><strong>ID:</strong> {{id}}</p>
+  <p><strong>Email:</strong> {{email}}</p>
+  <p><strong>First Name:</strong> {{firstName}}</p>
+  <p><strong>Last Name:</strong> {{lastName}}</p>
 </div>
-
-<button (click)="navigateToUserHandling()">Back To User Handling</button>

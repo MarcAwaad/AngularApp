@@ -10,5 +10,5 @@ export const routes: Routes = [
   { path: 'authentification', component: AuthentificationComponent },
   { path: 'userhandling', component: UserhandlingComponent},
   { path: 'newuser', component: NewUserComponent },
-  { path: 'user/:id', component: UserDetailsComponent },
+  { path: 'user', component: UserDetailsComponent}
 ];

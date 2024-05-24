@@ -3,17 +3,23 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { UserDetailsComponent } from '../user-details/user-details.component';
 
 @Component({
   selector: 'app-userhandling',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, UserDetailsComponent],
   templateUrl: './userhandling.component.html',
   styleUrl: './userhandling.component.css'
 })
 export class UserhandlingComponent {
   users: any[] = [];
   subscription: Subscription = new Subscription();
+  userId: string = '';
+  userEmail: string = '';
+  userFirstName: string = '';
+  userLastName: string = '';
+  userClicked: boolean = false;
 
   constructor(private apiService: ApiService, private router: Router) {}
 
@@ -36,7 +42,15 @@ export class UserhandlingComponent {
     this.router.navigate(['/newuser']);
   }
 
-  navigateToUserDetails(id: string): void {
-    this.router.navigate(['/user', id]);
+  showDetails(id: string, email: string, firstName: string, lastName: string): void {
+    this.userId = id;
+    this.userEmail = email;
+    this.userFirstName = firstName;
+    this.userLastName = lastName;
+    this.userClicked = true;
+  }
+
+  navigateToUserHandling(): void {
+    this.userClicked = false;
   }
 }
