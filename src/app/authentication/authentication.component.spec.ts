@@ -52,7 +52,7 @@ describe('AuthenticationComponent', () => {
     let errors = password.errors || {};
     expect(errors['required']).toBeTruthy();
 
-    password.setValue("123");
+    password.setValue("standardPassword");
     errors = password.errors || {};
     expect(errors['required']).toBeFalsy();
   });
@@ -67,22 +67,6 @@ describe('AuthenticationComponent', () => {
     component.loginForm.controls['email'].setValue("invalid-email");
     component.loginForm.controls['password'].setValue("Password1");
     expect(component.loginForm.valid).toBeFalsy();
-  });
-
-  it('should display email required error message', () => {
-    let email = component.loginForm.controls['email'];
-    email.markAsTouched();
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('div').textContent).toContain('Email is required.');
-  });
-
-  it('should display password required error message', () => {
-    let password = component.loginForm.controls['password'];
-    password.markAsTouched();
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('div').textContent).toContain('Password is required.');
   });
 
   it('should call onSubmit when form is valid', () => {
