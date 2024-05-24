@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../api.service';
 import { Subscription } from 'rxjs';
@@ -22,14 +22,24 @@ export class RegistrationComponent {
       email: ['', [Validators.required, Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$')]],
       password: ['', [
         Validators.required,
-        Validators.pattern('^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).{8,}$')
-      ]]
+        Validators.pattern('^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).{8,}$')]],
+      confirmPassword: ['', Validators.required]
+    }, {
+      validators: this.passwordMatchValidator
     });
   }
 
   ngOnInit(): void {
     this.loadUsers();
   }
+
+  passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+    const password = control.get('password')?.value;
+    const confirmPassword = control.get('confirmPassword')?.value;
+    console.log('Validator running:', { password, confirmPassword });
+    return password === confirmPassword ? null : { mismatch: true };
+  }
+  
 
   loadUsers(): void {
     this.subscription = this.apiService.getUsers().subscribe({
@@ -52,7 +62,7 @@ export class RegistrationComponent {
         this.apiService.registerUser(enteredEmail, enteredPassword).subscribe({
           next: response => {
             this.token = response.token;
-            console.log('Login successful, token:', this.token);
+            console.log('Registration successful, token:', this.token);
           },
           error: error => {
             console.error('Error registering:', error);
@@ -72,5 +82,9 @@ export class RegistrationComponent {
 
   get password() {
     return this.registrationForm.get('password');
+  }
+
+  get confirmPassword() {
+    return this.registrationForm.get('confirmPassword');
   }
 }

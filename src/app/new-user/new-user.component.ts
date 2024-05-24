@@ -4,7 +4,6 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../api.service';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-user',
