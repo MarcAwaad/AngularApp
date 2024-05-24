@@ -1,6 +1,5 @@
 import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-details',
@@ -15,9 +14,5 @@ export class UserDetailsComponent {
   firstName = input.required<string>();
   lastName = input.required<string>();
 
-  constructor(private router: Router) {}
-
-  navigateToUserDetails(): void {
-    this.router.navigate(['/user']);
-  }
+  constructor() {}
 }
