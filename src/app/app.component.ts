@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
   selector: 'app-root',
   template: `
     <nav>
-      <a routerLink="/authentification">Authentification</a>
+      <a routerLink="/authentication">Authentication</a>
       <a routerLink="/registration">Registration</a>
       <a routerLink="/userhandling">User Handling</a>
     </nav>
@@ -19,9 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
   standalone: true,
   imports: [RouterModule, HttpClientModule]
 })
-export class AppComponent {
-  title = 'cgiapp';
-}
+export class AppComponent {}
 
 bootstrapApplication(AppComponent, {
   providers: [

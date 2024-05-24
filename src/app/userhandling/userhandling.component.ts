@@ -12,7 +12,7 @@ import { UserDetailsComponent } from '../user-details/user-details.component';
   templateUrl: './userhandling.component.html',
   styleUrl: './userhandling.component.css'
 })
-export class UserhandlingComponent {
+export class UserHandlingComponent {
   users: any[] = [];
   subscription: Subscription = new Subscription();
   userId: string = '';

@@ -7,12 +7,12 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-authentification',
-  templateUrl: './authentification.component.html',
+  selector: 'app-authentication',
+  templateUrl: './authentication.component.html',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, HttpClientModule]
 })
-export class AuthentificationComponent {
+export class AuthenticationComponent {
   loginForm: FormGroup;
   users: any[] = [];
   subscription: Subscription = new Subscription();
