@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
   styleUrl: './user-details.component.css'
 })
 export class UserDetailsComponent {
-  @Input() id = '';
-  @Input() email = '';
-  @Input() firstName = '';
-  @Input() lastName = '';
+  id = input.required<string>();
+  email = input.required<string>();
+  firstName = input.required<string>();
+  lastName = input.required<string>();
 
   constructor(private router: Router) {}
 
