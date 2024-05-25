@@ -32,6 +32,7 @@ export class NewUserComponent {
         next: response => {
           this.popupMessage = 'Creation successful.';
           this.showMessage = true;
+          this.userForm.reset();
         },
         error: error => {
           this.popupMessage = 'Error creating user: ' + error;

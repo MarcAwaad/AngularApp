@@ -40,6 +40,11 @@ form {
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .btn:disabled {
+    opacity:0.6;
+    pointer-events: none;
+  }
   
   .btn:hover {
     background-color: #0056b3;

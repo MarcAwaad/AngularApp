@@ -67,6 +67,7 @@ export class RegistrationComponent {
             this.token = response.token;
             this.popupMessage = 'Registration successful, token: ' + this.token;
             this.showMessage = true;
+            this.registrationForm.reset();
           },
           error: error => {
             console.error('Error registering:', error);

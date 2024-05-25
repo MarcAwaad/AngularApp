@@ -55,6 +55,7 @@ export class AuthenticationComponent {
             this.token = response.token;
             this.popupMessage = 'Login successful, token: ' + this.token;
             this.showMessage = true;
+            this.loginForm.reset();
           },
           error: error => {
             this.popupMessage = 'Error logging in: ' + error;
