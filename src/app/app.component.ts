@@ -8,14 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <nav class="topbar">
-      <a class="nav-links"routerLink="/authentication">Authentication</a>
-      <a class="nav-links"routerLink="/registration">Registration</a>
-      <a class="nav-links"routerLink="/userhandling">User Handling</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `,
+  templateUrl: './app.component.html',
   standalone: true,
   imports: [RouterModule, HttpClientModule],
   styleUrl: './app.component.css'

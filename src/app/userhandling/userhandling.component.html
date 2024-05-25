@@ -1,16 +1,15 @@
 <div *ngIf="!userClicked">
-<h3>Users</h3>
-<ul>
-  <li *ngFor="let user of users">
-    {{ user.email }}
-    <button (click)="showDetails(user.id, user.email, user.first_name, user.last_name)">Details</button>
-  </li>
-</ul>
-
-<button (click)="navigateToNewUserPage()">Create New User</button>
+  <h3>Users</h3>
+  <ul class="user-list">
+    <li *ngFor="let user of users">
+      <span>{{ user.email }}</span>
+      <button class="btn-details" (click)="showDetails(user.id, user.email, user.first_name, user.last_name)">Details</button>
+    </li>
+  </ul>
+  <button class="btn-create" (click)="navigateToNewUserPage()">Create New User</button>
 </div>
 
 <div *ngIf="userClicked">
-<app-user-details [id]="userId" [email]="userEmail" [firstName]="userFirstName" [lastName]="userLastName"></app-user-details>
-<button (click)="navigateToUserHandling()">Back To User Handling</button>
+  <app-user-details [id]="userId" [email]="userEmail" [firstName]="userFirstName" [lastName]="userLastName"></app-user-details>
+  <button class="btn-back" (click)="navigateToUserHandling()">Back To User Handling</button>
 </div>

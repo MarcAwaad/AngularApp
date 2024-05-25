@@ -37,7 +37,6 @@ export class RegistrationComponent {
   passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const password = control.get('password')?.value;
     const confirmPassword = control.get('confirmPassword')?.value;
-    console.log('Validator running:', { password, confirmPassword });
     return password === confirmPassword ? null : { mismatch: true };
   }
   
