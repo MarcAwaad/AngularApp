@@ -10,7 +10,8 @@ import { Subscription } from 'rxjs';
   selector: 'app-authentication',
   templateUrl: './authentication.component.html',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule]
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
+  styleUrl: './authentication.component.css'
 })
 export class AuthenticationComponent {
   loginForm: FormGroup;

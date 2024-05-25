@@ -9,7 +9,8 @@ import { Subscription } from 'rxjs';
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule]
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
+  styleUrl: './registration.component.css'
 })
 export class RegistrationComponent {
   registrationForm: FormGroup;

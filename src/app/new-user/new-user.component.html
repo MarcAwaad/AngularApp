@@ -1,18 +1,20 @@
-<h2>Create new user</h2>
+<h2>Create New User</h2>
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-  <label for="name">Name:</label>
-  <input id="name" formControlName="name" type="text">
-  <div *ngIf="(name!.dirty || name!.touched)">
-    <div *ngIf="name!.errors?.['required']">Name is required.</div>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" type="text" class="form-control">
+    <div *ngIf="name!.invalid && (name!.dirty || name!.touched)" class="error">
+      <div *ngIf="name!.errors?.['required']">Name is required.</div>
+    </div>
   </div>
-  <br>
 
-  <label for="job">Job:</label>
-  <input id="job" formControlName="job" type="job">
-  <div *ngIf="(job!.dirty || job!.touched)">
-    <div *ngIf="job!.errors?.['required']">Job is required.</div>
+  <div class="form-group">
+    <label for="job">Job:</label>
+    <input id="job" formControlName="job" type="text" class="form-control">
+    <div *ngIf="job!.invalid && (job!.dirty || job!.touched)" class="error">
+      <div *ngIf="job!.errors?.['required']">Job is required.</div>
+    </div>
   </div>
-  <br>
 
-  <button type="submit">Create User</button>
+  <button type="submit" class="btn">Create User</button>
 </form>
