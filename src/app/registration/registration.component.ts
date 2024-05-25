@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { PopupComponent } from '../popup/popup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../api.service';
 import { Subscription } from 'rxjs';
@@ -9,7 +10,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, PopupComponent],
   styleUrl: './registration.component.css'
 })
 export class RegistrationComponent {
@@ -17,6 +18,8 @@ export class RegistrationComponent {
   users: any[] = [];
   subscription: Subscription = new Subscription();
   token: string | null = null;
+  popupMessage: string = "";
+  showMessage: boolean = false;
 
   constructor(private fb: FormBuilder, private apiService: ApiService) {
     this.registrationForm = this.fb.group({
@@ -62,18 +65,22 @@ export class RegistrationComponent {
         this.apiService.registerUser(enteredEmail, enteredPassword).subscribe({
           next: response => {
             this.token = response.token;
-            console.log('Registration successful, token:', this.token);
+            this.popupMessage = 'Registration successful, token: ' + this.token;
+            this.showMessage = true;
           },
           error: error => {
             console.error('Error registering:', error);
           }
         });
       } else {
-        console.log('Email does not match any existing users.');
+        this.popupMessage = 'Email does not match any existing users.';
+        this.showMessage = true;
       }
-    } else {
-      console.log('Form is invalid');
     }
+  }
+
+  closePopup() {
+    this.showMessage = false;
   }
 
   get email() {

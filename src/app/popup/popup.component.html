@@ -1,7 +1,6 @@
-<div class="popup" *ngIf="show">
-    <div class="popup-content">
-      <p>{{ message() }}</p>
-      <button class="btn-close" (click)="hidePopup()">OK</button>
-    </div>
+<div class="popup">
+  <div class="popup-content">
+    <p>{{ message() }}</p>
+    <button (click)="hidePopup()">Close</button>
   </div>
-  
+</div>

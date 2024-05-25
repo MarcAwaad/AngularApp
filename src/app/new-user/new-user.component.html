@@ -18,3 +18,5 @@
 
   <button type="submit" class="btn">Create User</button>
 </form>
+
+<app-popup *ngIf="showMessage" [message]="popupMessage" (close)="closePopup()"></app-popup>

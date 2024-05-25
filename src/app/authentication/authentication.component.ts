@@ -6,13 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../api.service';
 import { Subscription } from 'rxjs';
 
-
 @Component({
   selector: 'app-authentication',
   templateUrl: './authentication.component.html',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, HttpClientModule, PopupComponent],
-  styleUrl: './authentication.component.css'
+  styleUrls: ['./authentication.component.css']
 })
 export class AuthenticationComponent {
   loginForm: FormGroup;
@@ -44,7 +43,6 @@ export class AuthenticationComponent {
     });
   }
 
-
   onSubmit() {
     if (this.loginForm.valid) {
       const enteredEmail = this.loginForm.get('email')?.value;
@@ -59,15 +57,19 @@ export class AuthenticationComponent {
             this.showMessage = true;
           },
           error: error => {
-            console.error('Error logging in:', error);
+            this.popupMessage = 'Error logging in: ' + error;
+            this.showMessage = true;
           }
         });
       } else {
-        console.log('Email does not match any existing users.');
+        this.popupMessage = 'Email does not match any existing users.';
+        this.showMessage = true;
       }
-    } else {
-      console.log('Form is invalid');
     }
+  }
+
+  closePopup() {
+    this.showMessage = false;
   }
 
   get email() {
