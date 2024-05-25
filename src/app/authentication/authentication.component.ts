@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PopupComponent } from '../popup/popup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../api.service';
 import { Subscription } from 'rxjs';
@@ -10,7 +11,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-authentication',
   templateUrl: './authentication.component.html',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, PopupComponent],
   styleUrl: './authentication.component.css'
 })
 export class AuthenticationComponent {
@@ -18,6 +19,8 @@ export class AuthenticationComponent {
   users: any[] = [];
   subscription: Subscription = new Subscription();
   token: string | null = null;
+  popupMessage: string = "";
+  showMessage: boolean = false;
 
   constructor(private fb: FormBuilder, private apiService: ApiService) {
     this.loginForm = this.fb.group({
@@ -52,7 +55,8 @@ export class AuthenticationComponent {
         this.apiService.loginUser(enteredEmail, enteredPassword).subscribe({
           next: response => {
             this.token = response.token;
-            console.log('Login successful, token:', this.token);
+            this.popupMessage = 'Login successful, token: ' + this.token;
+            this.showMessage = true;
           },
           error: error => {
             console.error('Error logging in:', error);

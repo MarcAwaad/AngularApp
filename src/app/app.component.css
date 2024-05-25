@@ -6,10 +6,6 @@
     padding: 0px 10px;
 }
 
-img {
-    width: 50px;
-}
-
 .nav-links {
     list-style: none;
     display: flex;
