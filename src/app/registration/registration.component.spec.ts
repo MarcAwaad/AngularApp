@@ -113,8 +113,10 @@ describe('RegistrationComponent', () => {
     component.registrationForm.controls['password'].setValue("Password1");
     component.registrationForm.controls['confirmPassword'].setValue("Password1");
 
-    const button = fixture.nativeElement.querySelector('button');
-    button.click();
+    fixture.detectChanges();
+
+    const form = fixture.nativeElement.querySelector('form');
+    form.dispatchEvent(new Event('submit'));
 
     expect(component.onSubmit).toHaveBeenCalled();
   });

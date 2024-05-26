@@ -53,7 +53,7 @@ export class AuthenticationComponent {
         this.apiService.loginUser(enteredEmail, enteredPassword).subscribe({
           next: response => {
             this.token = response.token;
-            this.popupMessage = 'Login successful, token: ' + this.token;
+            this.popupMessage = 'Login successful. Token: ' + this.token;
             this.showMessage = true;
             this.loginForm.reset();
           },

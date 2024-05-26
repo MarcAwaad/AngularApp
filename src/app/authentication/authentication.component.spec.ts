@@ -74,8 +74,10 @@ describe('AuthenticationComponent', () => {
     component.loginForm.controls['email'].setValue("test@example.com");
     component.loginForm.controls['password'].setValue("Password1");
 
-    const button = fixture.nativeElement.querySelector('button');
-    button.click();
+    fixture.detectChanges();
+
+    const form = fixture.nativeElement.querySelector('form');
+    form.dispatchEvent(new Event('submit'));
 
     expect(component.onSubmit).toHaveBeenCalled();
   });

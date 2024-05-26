@@ -65,7 +65,7 @@ export class RegistrationComponent {
         this.apiService.registerUser(enteredEmail, enteredPassword).subscribe({
           next: response => {
             this.token = response.token;
-            this.popupMessage = 'Registration successful, token: ' + this.token;
+            this.popupMessage = 'Registration successful. Token: ' + this.token;
             this.showMessage = true;
             this.registrationForm.reset();
           },

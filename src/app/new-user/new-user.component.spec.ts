@@ -51,8 +51,10 @@ describe('NewUserComponent', () => {
     component.userForm.controls['name'].setValue("Name");
     component.userForm.controls['job'].setValue("Worker");
 
-    const button = fixture.nativeElement.querySelector('button');
-    button.click();
+    fixture.detectChanges();
+
+    const form = fixture.nativeElement.querySelector('form');
+    form.dispatchEvent(new Event('submit'));;
 
     expect(component.onSubmit).toHaveBeenCalled();
   });
