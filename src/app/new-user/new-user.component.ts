@@ -30,7 +30,7 @@ export class NewUserComponent {
     if (this.userForm.valid) {
       this.apiService.createUser(this.userForm.get('name')?.value, this.userForm.get('job')?.value).subscribe({
         next: response => {
-          this.popupMessage = 'Creation successful.';
+          this.popupMessage = `Creation successful. Response: ${JSON.stringify(response, null, 2)}`;
           this.showMessage = true;
           this.userForm.reset();
         },
