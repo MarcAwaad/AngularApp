@@ -3,22 +3,17 @@
     justify-content: space-between;
     align-items: center;
     background-color: #007bff;
-    padding: 0px 10px;
+    padding: 0.5rem 1rem;
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20%;
     font-size: 20px;
     font-family: fantasy;
-}
-
-.nav-links a {
     color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
 }
 
-.nav-links a:hover {
+.nav-links:hover {
     text-decoration: underline;
 }
-

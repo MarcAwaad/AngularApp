@@ -13,6 +13,7 @@ form {
   
   .form-group {
     margin-bottom: 1rem;
+    padding: 1rem;
   }
   
   label {
@@ -22,7 +23,7 @@ form {
   
   .form-control {
     width: 98%;
-    padding: 0.25rem;
+    padding: 0.5rem;
     font-size: 0.875rem;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -31,7 +32,7 @@ form {
   .error {
     color: red;
     margin-top: 0.25rem;
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
   
   .btn {

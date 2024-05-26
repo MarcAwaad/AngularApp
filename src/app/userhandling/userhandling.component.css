@@ -23,13 +23,14 @@ h2 {
   
       .btn-details {
         flex-shrink: 0;
-        padding: 0.5rem 1rem;
+        padding: 0.75rem 1.5rem;
         background-color: #007bff;
         color: white;
         border: none;
         border-radius: 4px;
         cursor: pointer;
         text-align: center;
+        font-size: 100%;
   
         &:hover {
           background-color: #0056b3;
@@ -41,7 +42,7 @@ h2 {
   .btn-create,
   .btn-back {
     display: block;
-    width: 100%;
+    width: 25%;
     padding: 0.75rem;
     font-size: 1rem;
     background-color: #007bff;
